@@ -1,0 +1,19 @@
+meta {
+  name: Create Account
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{host}}/digitaqui/api/accounts
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Matheus Gava",
+    "email": "matheus.gava@mail.com",
+    "password": "123"
+  }
+}

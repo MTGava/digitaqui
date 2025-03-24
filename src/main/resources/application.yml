@@ -1,0 +1,9 @@
+quarkus:
+    mongodb:
+        connection-string: ${MONGODB_CONNECTION_STRING}
+        database: ${MONGODB_DATABASE}
+        credentials:
+            username: ${MONGODB_USERNAME}
+            password: ${MONGODB_PASSWORD}
+    http:
+        root-path: /digitaqui/api
