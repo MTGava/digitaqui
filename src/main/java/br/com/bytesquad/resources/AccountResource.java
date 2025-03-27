@@ -1,25 +1,21 @@
 package br.com.bytesquad.resources;
 
 import java.net.URI;
-import java.util.List;
-import java.util.UUID;
 
-import br.com.bytesquad.domain.Account;
 import br.com.bytesquad.domain.dto.AccountDTO;
 import br.com.bytesquad.services.AccountService;
-import io.smallrye.mutiny.Uni;
 import jakarta.inject.Inject;
+import jakarta.validation.Valid;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
+import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import lombok.extern.slf4j.Slf4j;
 
 @Path("/accounts")
-@Slf4j
 public class AccountResource {
 
     @Inject
@@ -39,7 +35,7 @@ public class AccountResource {
     }
 
     @POST
-    public Response addAccount(AccountDTO dto) {
+    public Response addAccount(@Valid AccountDTO dto) {
         var account = accountService.addAccount(dto);
         return Response
                 .created(URI.create("/accounts/" + account.id()))

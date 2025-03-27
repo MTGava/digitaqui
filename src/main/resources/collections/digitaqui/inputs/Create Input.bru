@@ -1,0 +1,15 @@
+meta {
+  name: Create Input
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{host}}/digitaqui/api/inputs
+  body: json
+  auth: none
+}
+
+body:json {
+  { "inputs": "Nome;Rua", "active": true, "accountId": "67e0b74a22803c5c4194b75d"}
+}
